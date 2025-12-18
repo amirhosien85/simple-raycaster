@@ -1,11 +1,11 @@
-# تنظیمات کامپایلر
+
 CC = gcc
 CFLAGS = -Wall -std=c99 -Wextra -I./include
 
 
 
 
-LDFLAGS = -L./lib -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+LDFLAGS = ./lib/libraylib.a -lGL -lm -lpthread -ldl -lrt -lX11
 
 SOURCES = main.c map.c player.c raycaster.c
 OBJECTS = $(SOURCES:.c=.o)
