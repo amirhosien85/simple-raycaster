@@ -1,20 +1,22 @@
-# کامپایلر و تنظیمات
+# تنظیمات کامپایلر
 CC = gcc
 CFLAGS = -Wall -std=c99 -Wextra -I./include
-LDFLAGS = -L./lib -lraylib -lopengl32 -lgdi32 -lwinmm -lm
 
-# فایل‌های سورس و خروجی
+
+
+
+LDFLAGS = -L./lib -lraylib -lGL -lm -lpthread -ldl -lrt -lX11
+
 SOURCES = main.c map.c player.c raycaster.c
 OBJECTS = $(SOURCES:.c=.o)
-TARGET = raycaster.exe
 
-# قانون پیش‌فرض (اولین قانونی که اجرا می‌شود)
+
+TARGET = raycaster
+
 all: $(TARGET)
 
-# قانون ساخت فایل اجرایی (لینک کردن)
 $(TARGET): $(SOURCES)
 	$(CC) $(SOURCES) -o $(TARGET) $(CFLAGS) $(LDFLAGS)
 
-# قانون تمیز کردن فایل‌های بیلد
 clean:
-	del $(TARGET)
+	rm -f $(TARGET) $(OBJECTS)
