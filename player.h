@@ -5,9 +5,9 @@
 
 typedef struct 
 {
-    vector2 pos;
-    vector2 dir;
-    vector2 plane;
+    Vector2 pos;
+    Vector2 dir;
+    Vector2 plane;
     
 }Player;
 
