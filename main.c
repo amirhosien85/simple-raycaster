@@ -14,9 +14,9 @@ int main(void)
         BeginDrawing();
 
             ClearBackground(BLACK);
-            DrawMap2D;
-            
-        EndDrawing;
+            DrawMap2D();
+
+        EndDrawing();
     }
     
     CloseWindow();
