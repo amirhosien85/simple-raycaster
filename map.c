@@ -16,7 +16,7 @@ void DrawMap2D(void)
 {
     for (int y = 0; y < MAP_HEIGHT; y++)
     {
-        for (int x = 0; x < MAP_WIDITH; i++)
+        for (int x = 0; x < MAP_WIDITH; x++)
         {
             int screenX = x * TILE_SIZE;
             int screenY = y * TILE_SIZE;
@@ -31,7 +31,5 @@ void DrawMap2D(void)
             }
             DrawRectangleLines(screenX, screenY, TILE_SIZE, TILE_SIZE, DARKGRAY);
         }
-        
-    }
-    
+    }   
 }
