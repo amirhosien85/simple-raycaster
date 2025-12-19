@@ -40,7 +40,7 @@ void UpdatePlayer(void)
     }
     
 
-    if (IsKeyDown(KEY_RIGHT))
+    if (IsKeyDown(KEY_LEFT))
     {
         double oldDirX = player.dir.x;
         player.dir.x = player.dir.x * cos(-rotStep) - player.dir.y * sin(-rotStep);
@@ -51,7 +51,7 @@ void UpdatePlayer(void)
         player.plane.y = oldPlaneX * sin(-rotStep) + player.plane.y * cos(-rotStep);
     }
 
-    if (IsKeyDown(KEY_LEFT)) 
+    if (IsKeyDown(KEY_RIGHT)) 
     {
         double oldDirX = player.dir.x;
         player.dir.x = player.dir.x * cos(rotStep) - player.dir.y * sin(rotStep);
