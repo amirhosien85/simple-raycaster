@@ -7,8 +7,6 @@ Player player;
 const float MOVE_SPEED = 3.0f;
 const float ROT_SPEED = 3.0f;
 
-const float PLAYER_NATURAL_ENVIRONMENT = 0.1f;
-
 void InitPlayer(void)
 {
     player.pos = (Vector2){4.5f, 4.5f};
@@ -62,7 +60,7 @@ void UpdatePlayer(void)
 
         mapX = (int)(player.pos.x);
         mapY = (int)(newPosY);
-        
+
     if (mapY >= 0 && mapY < MAP_HEIGHT && world_map[mapX][mapY] == 0)
     {
         player.pos.y = newPosY;
