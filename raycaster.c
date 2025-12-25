@@ -95,7 +95,7 @@ void DrawRaycasting(void)
         if (drawEnd >= screenHeight)
             drawEnd = screenHeight - 1;
         
-        Color color = GRAY;
+        Color color = RED;
 
         if (side == 1)
             color = MAROON;
