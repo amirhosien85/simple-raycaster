@@ -33,3 +33,25 @@ void DrawMap2D(void)
         }
     }   
 }
+void DrawMinimap(int offsetX, int offsetY, int miniTileSize)
+{
+    for (int y = 0; y < MAP_HEIGHT; y++)
+    {
+        for (int x = 0; x < MAP_WIDITH; x++)
+        {
+            int screenX = offsetX + (x * miniTileSize);
+            int screenY = offsetY + (y * miniTileSize);
+
+            if (world_map[x][y] > 0)
+            {
+                DrawRectangle(screenX, screenY, miniTileSize, miniTileSize, WHITE);
+            }
+            else
+                DrawRectangle(screenX, screenY, miniTileSize, miniTileSize, BLACK);
+            
+            DrawRectangleLines(screenX, screenY, miniTileSize, miniTileSize, DARKGRAY);
+        }
+        
+    }
+    
+}
