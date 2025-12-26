@@ -12,4 +12,6 @@ extern int world_map[MAP_WIDITH][MAP_HEIGHT];
 
 void DrawMap2D(void);
 
+void DrawMinimap(int offsetX, int offsetY, int miniTileSize);
+
 #endif
