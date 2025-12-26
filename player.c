@@ -88,11 +88,21 @@ void UpdatePlayer(void)
         }
     
 }
-    void DrawPlayer2D(void)
-    {
-        int screenX = (int)(player.pos.x * TILE_SIZE);
-        int screenY = (int)(player.pos.y * TILE_SIZE);
-        DrawCircle(screenX, screenY, 5 , RED);
-        DrawLine(screenX, screenY, screenX + (int)(player.dir.x * 20), screenY + (int)(player.dir.y * 20), RED) ;
-    }
+void DrawPlayer2D(void)
+{
+    int screenX = (int)(player.pos.x * TILE_SIZE);
+    int screenY = (int)(player.pos.y * TILE_SIZE);
+    DrawCircle(screenX, screenY, 5 , RED);
+    DrawLine(screenX, screenY, screenX + (int)(player.dir.x * 20), screenY + (int)(player.dir.y * 20), RED) ;
+}
+
+void DrawPlayerMinimap(int offsetX, int offsetY, int miniTileSize)
+{
+    int screenX = offsetX + (int)(player.pos.x * miniTileSize);
+    int screenY = offsetY + (int)(player.pos.y * miniTileSize);
+
+    DrawCircle(screenX, screenY, 4, RED);
+
+    DrawLine(screenX, screenY, screenX + (int)(player.dir.x * 8), screenY + (int)(player.dir.y * 8), RED);
+}
     
