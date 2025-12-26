@@ -27,7 +27,7 @@ void DrawRaycasting(void)
         double deltaDistY = (rayDirY == 0) ? 1e30 : fabs(1 / rayDirY);
 
         double sideDistX;
-        double sideDiskY;
+        double sideDistY;
 
         int stepX;
         int stepY;
@@ -48,19 +48,19 @@ void DrawRaycasting(void)
         if (rayDirY < 0)
         {
             stepY = -1;
-            sideDiskY = (player.pos.y - mapY) * deltaDistY;
+            sideDistY = (player.pos.y - mapY) * deltaDistY;
         }
         else
         {
             stepY = 1;
-            sideDiskY = (mapY + 1.0 - player.pos.y) * deltaDistY;
+            sideDistY = (mapY + 1.0 - player.pos.y) * deltaDistY;
         }
 
 
 
         while (hit == 0)
         {
-            if (sideDistX < sideDiskY)
+            if (sideDistX < sideDistY)
             {
                 sideDistX += deltaDistX;
                 mapX += stepX;
@@ -68,7 +68,7 @@ void DrawRaycasting(void)
             }
             else
             {
-                sideDiskY += deltaDistY;
+                sideDistY += deltaDistY;
                 mapY += stepY;
                 side = 1;
             }
