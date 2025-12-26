@@ -32,12 +32,12 @@ void UpdatePlayer(void)
         moveX -= player.dir.x * moveStep;
         moveY -= player.dir.y * moveStep;
     }
-    if (IsKeyDown(KEY_D))
+    if (IsKeyDown(KEY_A))
     {
         moveX += -player.dir.y * moveStep;
         moveY += player.dir.x * moveStep;
     }
-    if (IsKeyDown(KEY_A))
+    if (IsKeyDown(KEY_D))
     {
         moveX -= -player.dir.y * moveStep;
         moveY -= player.dir.x * moveStep;

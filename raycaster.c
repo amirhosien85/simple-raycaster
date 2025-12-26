@@ -45,7 +45,7 @@ void DrawRaycasting(void)
             stepX = 1;
             sideDistX = (mapX + 1.0 - player.pos.x) * deltaDistX;
         }
-        if (rayDirX < 0)
+        if (rayDirY < 0)
         {
             stepY = -1;
             sideDiskY = (player.pos.y - mapY) * deltaDistY;
@@ -95,18 +95,18 @@ void DrawRaycasting(void)
         int drawStart= -lineHeight / 2 + screenHeight / 2;
         if (drawStart < 0)
             drawStart = 0;
-        
+            
         int drawEnd = lineHeight / 2 + screenHeight / 2;
         if (drawEnd >= screenHeight)
             drawEnd = screenHeight - 1;
-        
+            
         Color color = GRAY;
 
         if (side == 1)
             color = DARKGRAY;
-        
+            
         DrawLine(x, drawStart, x, drawEnd, color);
-        
+            
     }
     
 }
