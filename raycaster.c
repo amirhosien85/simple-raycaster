@@ -17,9 +17,6 @@ void DrawRaycasting(void)
         double rayDirY = player.dir.y + player.plane.y * cameraX;
 
 
-
-
-
         int mapX = (int)player.pos.x;
         int mapY = (int)player.pos.y;
 
@@ -31,9 +28,6 @@ void DrawRaycasting(void)
 
         int stepX;
         int stepY;
-
-        int hit = 0;
-        int side;
 
         if (rayDirX < 0)
         {
@@ -57,6 +51,8 @@ void DrawRaycasting(void)
         }
 
 
+        int hit = 0;
+        int side;
 
         while (hit == 0)
         {
@@ -78,35 +74,35 @@ void DrawRaycasting(void)
         }
 
 
-    double perpWallDist;
-    if (side == 0)
-    {
-        perpWallDist = (mapX - player.pos.x + (1 - stepX) / 2.0) / rayDirX;
-    }
-    else
-    {
-        perpWallDist = (mapY - player.pos.y + (1 - stepY) / 2.0) / rayDirY;
-    }
+        double perpWallDist;
+        if (side == 0)
+        {
+            perpWallDist = (mapX - player.pos.x + (1 - stepX) / 2.0) / rayDirX;
+        }
+        else
+        {
+            perpWallDist = (mapY - player.pos.y + (1 - stepY) / 2.0) / rayDirY;
+        }
 
 
-        
+            
         int lineHeight = (int)(screenHeight / perpWallDist);
 
         int drawStart= -lineHeight / 2 + screenHeight / 2;
         if (drawStart < 0)
             drawStart = 0;
-            
+                
         int drawEnd = lineHeight / 2 + screenHeight / 2;
         if (drawEnd >= screenHeight)
             drawEnd = screenHeight - 1;
-            
+                
         Color color = GRAY;
 
         if (side == 1)
             color = DARKGRAY;
-            
+                
         DrawLine(x, drawStart, x, drawEnd, color);
-            
+                
     }
     
 }
