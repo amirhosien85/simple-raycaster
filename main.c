@@ -25,11 +25,14 @@ int main(void)
 
             DrawRectangle(0, 0, screenWidth, screenHeigh / 2, BLUE);
             DrawRectangle(0,screenHeigh / 2, screenWidth, screenHeigh / 2, DARKBROWN);
+
             DrawRaycasting();
 
+            DrawMinimap(10, 10, 16);
+            DrawPlayerMinimap(10, 10, 16);
+
             DrawFPS(10,10);
-            //DrawMap2D();
-            //DrawPlayer2D();
+
             
         EndDrawing();
     }
