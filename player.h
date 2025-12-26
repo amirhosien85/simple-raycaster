@@ -17,4 +17,6 @@ void InitPlayer(void);
 void UpdatePlayer(void);
 void DrawPlayer2D(void);
 
+void DrawPlayerMinimap(int offsetX, int offsetY, int miniTileSize);
+
 #endif
