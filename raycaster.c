@@ -77,15 +77,20 @@ void DrawRaycasting(void)
                 hit = 1;
         }
 
-        double prepWallDist;
-        if (side == 0)
-            prepWallDist = (sideDistX - deltaDistX);
-        else
-            prepWallDist = (sideDiskY - deltaDistY);
+
+    double perpWallDist;
+    if (side == 0)
+    {
+        perpWallDist = (mapX - player.pos.x + (1 - stepX) / 2.0) / rayDirX;
+    }
+    else
+    {
+        perpWallDist = (mapY - player.pos.y + (1 - stepY) / 2.0) / rayDirY;
+    }
 
 
         
-        int lineHeight = (int)(screenHeight / prepWallDist);
+        int lineHeight = (int)(screenHeight / perpWallDist);
 
         int drawStart= -lineHeight / 2 + screenHeight / 2;
         if (drawStart < 0)
@@ -95,10 +100,10 @@ void DrawRaycasting(void)
         if (drawEnd >= screenHeight)
             drawEnd = screenHeight - 1;
         
-        Color color = RED;
+        Color color = GRAY;
 
         if (side == 1)
-            color = MAROON;
+            color = DARKGRAY;
         
         DrawLine(x, drawStart, x, drawEnd, color);
         

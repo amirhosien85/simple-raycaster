@@ -23,8 +23,8 @@ int main(void)
 
             ClearBackground(BLACK);
 
-            DrawRectangle(0, 0, screenWidth, screenHeigh / 2, DARKGRAY);
-            DrawRectangle(0,screenHeigh / 2, screenWidth, screenHeigh / 2, BLUE);
+            DrawRectangle(0, 0, screenWidth, screenHeigh / 2, BLUE);
+            DrawRectangle(0,screenHeigh / 2, screenWidth, screenHeigh / 2, BLACK);
             DrawRaycasting();
 
             DrawFPS(10,10);
