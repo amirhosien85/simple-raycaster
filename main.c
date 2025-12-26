@@ -5,9 +5,9 @@
 
 int main(void)
 {
-    const int screenWidth = 800;
+    const int screenWidth = 1024;
     //MAP_WIDITH * TILE_SIZE;
-    const int screenHeigh = 600;
+    const int screenHeigh = 768;
     //MAP_HEIGHT * TILE_SIZE;
 
     InitWindow(screenWidth, screenHeigh,"Raycasting Engine: phase_2 (the 3D mode)");
