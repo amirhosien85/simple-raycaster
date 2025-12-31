@@ -14,4 +14,6 @@ void DrawMap2D(void);
 
 void DrawMinimap(int offsetX, int offsetY, int miniTileSize);
 
+void ToggleWall(int mapX, int mapY);
+
 #endif
