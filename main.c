@@ -19,6 +19,21 @@ int main(void)
     {
         UpdatePlayer();
 
+        if (IsMouseButtonPressed(MOUSE_BUTTON_LEFT))
+        {
+            Vector2 mousePos = GetMousePosition();
+
+            int mapOffsetX = 10;
+            int mapOffsetY = 10;
+            int mapScale = 16;
+
+            int clickedX = (int)((mousePos.x - mapOffsetX) / mapScale);
+            int clickedY = (int)((mousePos.y - mapOffsetY) / mapScale);
+
+            ToggleWall(clickedX, clickedY);
+        }
+        
+
         BeginDrawing();
 
             ClearBackground(BLACK);
