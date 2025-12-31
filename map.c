@@ -61,6 +61,11 @@ void ToggleWall(int mapX, int mapY)
 {
     if ((mapX >= 0 && mapX < MAP_WIDITH) && (mapY >= 0 && mapY < MAP_HEIGHT))
     {
+        if (mapX == 0 || mapX == MAP_WIDITH - 1 || mapY == 0 || mapY == MAP_HEIGHT - 1)
+        {
+            TraceLog(LOG_WARNING, "CANNOT MODIFY BORDER WALLS!");
+            return;
+        }
         if (world_map[mapX][mapY] == 0)
         {
             world_map[mapX][mapY] = 1;
