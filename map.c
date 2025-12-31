@@ -1,13 +1,14 @@
 #include "map.h"
 #include<stdio.h>
 #include<raylib.h>
+#include"player.h"
 
 int world_map[MAP_WIDITH][MAP_HEIGHT] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
-    {1, 0, 0, 0, 0, 1, 0, 0, 0, 1},
+    {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
     {1, 0, 0, 0, 0, 0, 0, 0, 0, 1},
@@ -66,6 +67,15 @@ void ToggleWall(int mapX, int mapY)
             TraceLog(LOG_WARNING, "CANNOT MODIFY BORDER WALLS!");
             return;
         }
+
+        int playerGridX = (int)player.pos.x;
+        int playerGridY = (int)player.pos.y;
+
+        if (mapX == playerGridX && mapY == playerGridY)
+        {
+            TraceLog(LOG_WARNING, "CANNOT BUILD WALL ON PLAYER!");
+            return;
+        }
         if (world_map[mapX][mapY] == 0)
         {
             world_map[mapX][mapY] = 1;
@@ -101,9 +111,22 @@ void LoadMap(const char *fileName)
 
     if (file != NULL)
     {
+        
         fread(world_map, sizeof(world_map), 1, file);
 
         fclose(file);
+
+        int playerGridX = (int)player.pos.x;
+        int playerGridY = (int)player.pos.y;
+
+        if (playerGridX >= 0 && playerGridX < MAP_WIDITH && playerGridY >= 0 && playerGridY < MAP_HEIGHT)
+            {
+                if (world_map[playerGridX][playerGridY] != 0)
+                {
+                    world_map[playerGridX][playerGridY] = 0;
+                    TraceLog(LOG_WARNING, "SAFETY: Removed wall at player position after load!");
+                }
+            }
 
         TraceLog(LOG_INFO, "MAP LOADED SUCCESSFULLY FROM: %s", fileName);
     }
