@@ -34,8 +34,6 @@ int main(void)
 
                 int startX = (screenWidth - (MAP_WIDITH* tileSize)) / 2;
                 int startY = (screenHeigh - (MAP_HEIGHT * tileSize)) / 2;
-
-                Vector2 mousePos = GetMousePosition();
                 
                 int clickedX = (int)((mousePos.x - startX) / tileSize);
                 int clickedY = (int)((mousePos.y - startY) / tileSize);
