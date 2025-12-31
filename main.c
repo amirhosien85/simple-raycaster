@@ -30,12 +30,17 @@ int main(void)
         {
             Vector2 mousePos = GetMousePosition();
 
-            int mapScale = 64;
+            int tileSize = 64;
 
-            int clickedX = (int)((mousePos.x) / mapScale);
-            int clickedY = (int)((mousePos.y) / mapScale);
+                int startX = (screenWidth - (MAP_WIDITH* tileSize)) / 2;
+                int startY = (screenHeigh - (MAP_HEIGHT * tileSize)) / 2;
 
-            ToggleWall(clickedX, clickedY);
+                Vector2 mousePos = GetMousePosition();
+                
+                int clickedX = (int)((mousePos.x - startX) / tileSize);
+                int clickedY = (int)((mousePos.y - startY) / tileSize);
+
+                ToggleWall(clickedX, clickedY);
         }
         
 
@@ -43,29 +48,33 @@ int main(void)
 
             ClearBackground(BLACK);
 
-        if (showBigMap)
-        {
+            if (showBigMap)
+            {
+                int tileSize = 64;
+                int startX = (screenWidth - (MAP_WIDITH * tileSize)) / 2;
+                int startY = (screenHeigh - (MAP_HEIGHT * tileSize)) / 2;
 
-            DrawMinimap(0, 0, 64);
+                DrawMinimap(startX, startY, tileSize);
+                DrawPlayerMinimap(startX, startY, tileSize);
                 
-            DrawPlayerMinimap(0, 0, 64);
+                DrawRectangleLines(startX - 2, startY - 2, (MAP_WIDITH * tileSize) + 4, (MAP_HEIGHT * tileSize) + 4, GREEN);
                 
-            DrawText("EDIT MODE: Left Click to Toggle Walls. Press 'M' to Play.", 10, 10, 20, GREEN);
-        }
-        else
-        {
+                DrawText("EDIT MODE - Press 'M' to Play", 20, 20, 20, WHITE);
+            }
+            else
+            {
 
-            DrawRectangle(0, 0, screenWidth, screenHeigh / 2, BLUE);
-            DrawRectangle(0,screenHeigh / 2, screenWidth, screenHeigh / 2, DARKBROWN);
+                DrawRectangle(0, 0, screenWidth, screenHeigh / 2, BLUE);
+                DrawRectangle(0,screenHeigh / 2, screenWidth, screenHeigh / 2, DARKBROWN);
 
-            DrawRaycasting();
+                DrawRaycasting();
 
-            DrawMinimap(10, 10, 16);
-            DrawPlayerMinimap(10, 10, 16);
+                DrawMinimap(10, 10, 16);
+                DrawPlayerMinimap(10, 10, 16);
 
-            DrawFPS(10,200);
+                DrawFPS(10,200);
 
-        }
+            }
 
         EndDrawing();
     }
