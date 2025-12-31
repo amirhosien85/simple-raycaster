@@ -61,11 +61,11 @@ void ToggleWall(int mapX, int mapY)
     {
         if (world_map[mapX][mapY] == 0)
         {
-            world_map[mapX][mapY] == 1;
+            world_map[mapX][mapY] = 1;
         }
         else
         {
-            world_map[mapX][mapY] == 0;
+            world_map[mapX][mapY] = 0;
         }
         
     }
