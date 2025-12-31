@@ -16,4 +16,7 @@ void DrawMinimap(int offsetX, int offsetY, int miniTileSize);
 
 void ToggleWall(int mapX, int mapY);
 
+void SaveMap(const char *fileName);
+void LoadMap(const char *fileName);
+
 #endif
