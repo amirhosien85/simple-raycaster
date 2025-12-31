@@ -65,7 +65,7 @@ int main(void)
                 DrawRectangleLines(startX - 2, startY - 2, (MAP_WIDITH * tileSize) + 4, (MAP_HEIGHT * tileSize) + 4, GREEN);
                 
                 DrawText("EDIT MODE - Press 'M' to Play", 20, 20, 20, WHITE);
-                DrawText("KEYS: [S] Save Map  |  [L] Load Map  |  [M] Play", 20, 50, 20, GREEN);
+                
             }
             else
             {
