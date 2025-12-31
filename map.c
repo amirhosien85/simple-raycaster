@@ -55,3 +55,19 @@ void DrawMinimap(int offsetX, int offsetY, int miniTileSize)
     }
     
 }
+void ToggleWall(int mapX, int mapY)
+{
+    if ((mapX >= 0 && mapX < MAP_WIDITH) && (mapY >= 0 && mapY < MAP_HEIGHT))
+    {
+        if (world_map[mapX][mapY] == 0)
+        {
+            world_map[mapX][mapY] == 1;
+        }
+        else
+        {
+            world_map[mapX][mapY] == 0;
+        }
+        
+    }
+    
+}
