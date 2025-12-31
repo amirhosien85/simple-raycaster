@@ -1,4 +1,6 @@
 #include "map.h"
+#include<stdio.h>
+#include<raylib.h>
 
 int world_map[MAP_WIDITH][MAP_HEIGHT] = {
     {1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
@@ -68,6 +70,41 @@ void ToggleWall(int mapX, int mapY)
             world_map[mapX][mapY] = 0;
         }
         
+    }
+    
+}
+void SaveMap(const char *fileName)
+{
+    FILE *file = fopen(fileName, "wb");
+
+    if (file != NULL)
+    {
+        fwrite(world_map, sizeof(world_map), 1, file);
+
+        fclose(file);
+
+        TraceLog(LOG_INFO, "MAP SAVED SUCCESSFULLY TO: %s", fileName);
+    }
+    else
+    {
+        TraceLog(LOG_WARNING, "COULD NOT SAVE MAP!");
+    }
+}
+void LoadMap(const char *fileName)
+{
+    FILE *file = fopen(fileName, "rb");
+
+    if (file != NULL)
+    {
+        fread(world_map, sizeof(world_map), 1, file);
+
+        fclose(file);
+
+        TraceLog(LOG_INFO, "MAP LOADED SUCCESSFULLY FROM: %s", fileName);
+    }
+    else
+    {
+        TraceLog(LOG_WARNING, "SAVE FILE NOT FOUND!");
     }
     
 }
