@@ -10,7 +10,7 @@ int main(void)
     const int screenHeigh = 768;
     //MAP_HEIGHT * TILE_SIZE;
 
-    InitWindow(screenWidth, screenHeigh,"Raycasting Engine: phase_2 (the 3D mode)");
+    InitWindow(screenWidth, screenHeigh,"Raycasting Engine COMPLITED!:)");
     SetTargetFPS(60);
 
     InitPlayer();
