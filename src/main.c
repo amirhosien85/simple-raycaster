@@ -10,7 +10,7 @@ int main(void)
     const int screenHeigh = 768;
     //MAP_HEIGHT * TILE_SIZE;
 
-    InitWindow(screenWidth, screenHeigh,"Raycasting Engine: phase_2 (the 3D mode)");
+    InitWindow(screenWidth, screenHeigh,"Raycasting Engine COMPLITED!:)");
     SetTargetFPS(60);
 
     InitPlayer();
@@ -40,11 +40,11 @@ int main(void)
 
                 ToggleWall(clickedX, clickedY);
         }
-        if (IsKeyPressed(KEY_S))
+        if (IsKeyPressed(KEY_F1))
         {
             SaveMap("my_level.dat");
         }
-        if (IsKeyPressed(KEY_L))
+        if (IsKeyPressed(KEY_F2))
         {
             LoadMap("my_level.dat");
         }
@@ -65,6 +65,7 @@ int main(void)
                 DrawRectangleLines(startX - 2, startY - 2, (MAP_WIDITH * tileSize) + 4, (MAP_HEIGHT * tileSize) + 4, GREEN);
                 
                 DrawText("EDIT MODE - Press 'M' to Play", 20, 20, 20, WHITE);
+                DrawText("KEYS: [F1] Save Map  |  [F2] Load Map  |  [M] Play", 20, 50, 20, GREEN);
                 
             }
             else

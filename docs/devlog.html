@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>raycaster_web_developing</title>
+        <link rel="stylesheet" href="./style.css">
+        <link rel="icon" type="image/png" href="./lll.png">
+    </head>
+
+    <body>
+        <header>
+            <div class="name">
+                <div class="header-logo">
+                    <img src="./oone.png" alt="A">
+                </div>
+                <div class="header-text">
+                    <h1>ProtoRay Engine</h1>
+                    <h3>Exploring 3D from the ground up</h3>
+                </div>
+            </div>
+            <nav dir="rtl">
+                <ul >
+                    <li><a href="./index.html" target="_blank">HomePage</a></li>
+                    <li><a href="./devlog.html" target="_blank">Devlog</a></li>
+                    <li><a href="./gallery.html" target="_blank">Gallery</a></li>
+                    <li><a href="https://google.com" target="_blank" class="button">Download Sources</a></li>
+                </ul>
+            </nav>
+        </header>
+
+        <main>
+            <div>
+                <h2>RAYCASTING: How it's working?</h2>
+                <p class="bio-text">
+                    Raycasting is the core technique used in this engine to transform a 2D map into a real-time 3D view.<br> The world is stored as a grid-based 2D array, where each cell represents either empty space or a wall. <br>For every vertical column of the screen, the engine casts a ray from the player's position at a specific angle. <br>This ray moves forward through the map until it collides with a wall cell. <br> distance to this wall is then calculated and used to determine the height of the vertical slice drawn on the screen. <br>By repeating this process for all screen columns, the engine constructs a full 3D scene from a simple 2D layout, creating the illusion of depth and perspective.
+                </p>
+            </div>
+            <div>
+                <h2>CHALENGES: Fish eye !?</h2>
+                <p class="bio-text">
+                    The most difficult bug I faced during development was fixing the fish-eye distortion effect. <br>At first, walls near the edges of the screen appeared stretched and curved, which broke the realism of the scene. <br>This happened because the raw ray distance was being used directly, without correcting for the angle between the ray direction and the player’s view direction. <br>The solution was to multiply the ray distance by the cosine of this angle, which projects the distance onto the camera plane and removes the distortion. <br>Another major challenge was managing memory safely in C, especially when working with dynamic textures and arrays. <br>Debugging segmentation faults and memory leaks taught me the importance of careful allocation, validation, and cleanup in low-level programming.
+                </p>
+            </div>
+        </main>
+
+        <footer>
+            <div class="end">
+                <p>
+                    AmirhoseinEbrahimpour<br>
+                    404521003<br>
+                    Open Source License 2026 ©
+                </p>                
+            </div>
+        <nav>
+            <div class="footerlinks">
+                <h2>UsefullLinks</h3>
+                <ul>
+                    <li><a href="./index.html" target="_blank">HomePage</a></li>
+                    <li><a href="./devlog.html" target="_blank">DevLog</a></li>
+                    <li><a href=" https://policies.google.com/?hl=en" target="_blank">Open Source License ©</a></li>
+                </ul>
+
+            </div>
+        </nav>
+            
+
+        </footer>
+    </body>
+
+</html>
