@@ -192,23 +192,22 @@ body {
 }
 
 .Screenshot {
-    width: 370px;
-    height: auto;
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
 
     display: block;
-
     padding: 4px;
 
     border-radius: 15px;
     border: 1.5px solid var(--accent-color);
-
     box-shadow: 0 4px 8px var(--shadow-color); 
     
     transition: transform 0.3s ease;
 
-    /* height: 100%; */
 
     box-shadow: 0 0 10px rgba(79, 205, 209, 0.6);
+
 }
 .Screenshot:hover{
     transform: scale(1.05);
