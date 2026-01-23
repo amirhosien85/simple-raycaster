@@ -16,7 +16,8 @@ Follow these commands to compile and run the engine on your machine:
 1. **Compile the source code:**
    ```bash
    make
-2.Run the engine:
-```bash
-./raycaster
+2. **Run the engine:**
+   ```bash
+   ./raycaster
+**ENJOY IT NOW! :)**
 
