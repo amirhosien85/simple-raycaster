@@ -7,8 +7,14 @@
     --hover-color: #7df6fa;
     --shadow-color: rgba(0, 0, 0, 0.5);
 }
+@font-face {
+    font-family: 'MyFont';
+    src: url('fonts/Rajdhani-Bold.ttf') format('truetype');
+    font-weight: normal;
+    font-style: normal;
+}
 body {
-    font-family: Tahoma, Arial, sans-serif;
+    font-family: 'MyFont', Tahoma, sans-serif;
 
     background-color: var(--bg-color);
     color: var(--text-color);
@@ -40,12 +46,12 @@ header {
 
     position: relative;
 
-    /* z-index: 10; */
+    z-index: 10;
 }
 .name {
-    display: flex;           /* فلکس کردن عناصر داخلش */
-    align-items: center;     /* وسط چین عمودی */
-    gap: 10px;               /* فاصله بین لوگو و متن */
+    display: flex;
+    align-items: center;
+    gap: 10px;
 }
 
 
@@ -61,12 +67,31 @@ header {
     height: auto;
     display: block;
 }
+.header-text h1 {
+    background: linear-gradient(90deg, #e7ecf8, #38eef4);
 
-.header-text {
-    line-height: 18px;
-    
+    -webkit-background-clip: text;
+
+    background-clip: text;
+
+    color: transparent;
+
+    font-weight: 800;
+    font-size: 50px;
+
+    margin-bottom: 0;
+    margin-top: 0;
+
+    line-height: 1;
 }
+.header-text h3 {
+    margin-top: 5px;
+    margin-bottom: 0;
 
+    font-size: 26px;
+
+    opacity: 0.9;
+}
 
 a {
     color: var(--accent-color);
@@ -78,7 +103,7 @@ a {
     border: 0.5px solid var(--primary-hf-color);
     border-radius: 34px;
 
-    /* transition: all 0.3s ease; */
+    transition: all 0.3s ease;
 
     padding: 5px 10px;
     margin: 2px;
@@ -140,7 +165,7 @@ body {
     scroll-behavior: smooth;
 }
 
-.portfolio-grid {
+.intruduction-grid {
     display: grid;
 
     grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); 
@@ -151,7 +176,7 @@ body {
     
     list-style: none;
 }
-.portfolio-grid li dl {
+.intruduction-grid li dl {
     background-color: var(--primary-color);
     padding: 20px;
     border-radius: 15px;
@@ -165,7 +190,7 @@ body {
     align-items: center;
 }
 
-.portfolio-grid li dl:hover {
+.intruduction-grid li dl:hover {
     transform: translateY(-5px);
     box-shadow: 0 8px 16px rgba(0, 0, 0, 0.7);
     
@@ -275,7 +300,7 @@ figure {
         gap: 15px;
     }
 
-    .portfolio-grid {
+    .intruduction-grid {
         grid-template-columns: 1fr;
     }
     
@@ -338,6 +363,6 @@ figure {
 
 
 * {
-    scrollbar-width: thin;
+    scrollbar-width: 8px;
     scrollbar-color: var(--accent-color) var(--primary-color);
 }
